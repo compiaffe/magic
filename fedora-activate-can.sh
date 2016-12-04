@@ -21,10 +21,12 @@ find . -maxdepth 1 -name kernel-\*.rpm -type f -exec mv '{}' .oldkernels/ \;
 
 rpmdev-setuptree
 
+sudo dnf install numactl-devel pesign -y
+
 if [ -e .oldkernels/$KERNEL_RPM_NAME ]; then
     mv .oldkernels/$KERNEL_RPM_NAME .
 else
-    yumdownloader --source kernel
+    dnf download --source kernel
 fi
 
 if [ ! -e $KERNEL_RPM_NAME ]; then
@@ -32,7 +34,7 @@ if [ ! -e $KERNEL_RPM_NAME ]; then
     exit -1
 fi
 
-sudo yum-builddep $KERNEL_RPM_NAME
+sudo dnf builddep $KERNEL_RPM_NAME
 
 rpm -Uvh $KERNEL_RPM_NAME
 mv $KERNEL_RPM_NAME .oldkernels
@@ -86,4 +88,3 @@ sudo make M=drivers/net/can modules_install
 sudo depmod -a
 sudo modprobe can
 sudo modprobe vcan
-
