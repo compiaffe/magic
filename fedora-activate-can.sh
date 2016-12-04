@@ -59,12 +59,12 @@ echo "CONFIG_CAN_RAW=m" >> .config
 echo "CONFIG_CAN_BCM=m" >> .config
 echo "CONFIG_CAN_GW=m" >> .config
 echo "CONFIG_CAN_VCAN=m" >> .config
+echo "CONFIG_CAN_SLCAN=m" >> .config
 echo "CONFIG_CAN_DEV=m" >> .config
 echo "CONFIG_CAN_CALC_BITTIMING=y" >> .config
 echo "CONFIG_CAN_PEAK_USB=m" >> .config
 
 echo "# CONFIG_NET_EMATCH_CANID is not set" >> .config
-echo "# CONFIG_CAN_SLCAN is not set" >> .config
 echo "# CONFIG_CAN_LEDS is not set" >> .config
 echo "# CONFIG_CAN_SJA1000 is not set" >> .config
 echo "# CONFIG_CAN_C_CAN is not set" >> .config
